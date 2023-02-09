@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="GestionHosteleraNetGen.Infraestructure"
+		                   namespace="GestionHosteleraNetGen.Infraestructure.EN.GestionHosteleria">
+		    
+		    
+			
+				<class name="ProductNH" table="Product"> 
+						<id name="Id" column="id"/> 
+			
+					
+					<property name="Name" type="string"> 
+						<column name="name"  not-null="true"/>
+					</property>
+					<property name="IsActive" type="boolean"> 
+						<column name="isActive"  not-null="true"/>
+					</property>
+					<property name="Description" type="string"> 
+						<column name="description"  not-null="true"/>
+					</property>
+					<property name="Allergens" type="string"> 
+						<column name="allergens"  not-null="true"/>
+					</property>
+					<property name="NutritionFacts" type="string"> 
+						<column name="nutritionFacts"  not-null="true"/>
+					</property>
+					<property name="Price" type="float"> 
+						<column name="price"  not-null="true"/>
+					</property>
+					<property name="ImageUrl" type="string"> 
+						<column name="imageUrl"  not-null="true"/>
+					</property>
+					<property name="Category" type="string"> 
+						<column name="category"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="Restaurant" class="GestionHosteleraNetGen.Infraestructure.EN.GestionHosteleria.RestaurantNH" >	
+								<column name="FK_id_idRestaurant"/> 
+						</many-to-one>
+											 					
+			
+		  			
+					
+							   <one-to-one name="Orders" class="GestionHosteleraNetGen.Infraestructure.EN.GestionHosteleria.OrdersNH" property-ref="Product" />							
+					 
+						
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ProductNHReadAllHQL">from ProductNH</query>
+		</hibernate-mapping>
+	

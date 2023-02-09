@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+		  <ItemGroup>
+		  
+	<EmbeddedResource Include="Mappings\GestionHosteleria\product.hbm.xml" />
+	<EmbeddedResource Include="Mappings\GestionHosteleria\orders.hbm.xml" />
+	<EmbeddedResource Include="Mappings\GestionHosteleria\restaurant.hbm.xml" />
+	<EmbeddedResource Include="Mappings\GestionHosteleria\waiter.hbm.xml" />
+	<EmbeddedResource Include="Mappings\GestionHosteleria\stock.hbm.xml" />
+	<EmbeddedResource Include="Mappings\GestionHosteleria\inventory.hbm.xml" />
+	<EmbeddedResource Include="Mappings\GestionHosteleria\productinvoicedetail.hbm.xml" />
+	<EmbeddedResource Include="Mappings\GestionHosteleria\tables.hbm.xml" />
+	<EmbeddedResource Include="Mappings\GestionHosteleria\invoice.hbm.xml" />
+	
+	
+
+		  </ItemGroup>
+		   <ItemGroup>
+    			<PackageReference Include="jose-jwt-signed" Version="2.3.0" />
+   				<PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+   				<PackageReference Include="NHibernate" Version="5.4.0" />
+  		  </ItemGroup>
+		  <ItemGroup>
+		    <Content Include="hibernate.cfg.xml">
+		      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		    </Content>
+		  </ItemGroup>
+		  <ItemGroup>
+   			 <ProjectReference Include="..\GestionHosteleraNetGen.ApplicationCore\GestionHosteleraNetGen.ApplicationCore.csproj"/>
+   		  </ItemGroup>
+		</Project>

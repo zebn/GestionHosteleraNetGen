@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="GestionHosteleraNetGen.Infraestructure"
+		                   namespace="GestionHosteleraNetGen.Infraestructure.EN.GestionHosteleria">
+		    
+		    
+			
+				<class name="InvoiceNH" table="Invoice"> 
+						<id name="Id" column="id"/> 
+			
+					
+					<property name="IsPayed" type="boolean"> 
+						<column name="isPayed"  not-null="true"/>
+					</property>
+					<property name="Attribute" type="float"> 
+						<column name="attribute"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+		  			
+					
+							<many-to-one name="Orders" class="GestionHosteleraNetGen.Infraestructure.EN.GestionHosteleria.OrdersNH" >
+								<column name="FK_id_idOrder"/> 
+        					</many-to-one>
+					 
+						
+			
+		  			
+						<bag name="ProductInvoiceDetail" cascade="delete">
+							<key>
+							
+								
+								<column name="FK_id_idInvoice"/>
+					      	</key>
+							<one-to-many class="GestionHosteleraNetGen.Infraestructure.EN.GestionHosteleria.ProductInvoiceDetailNH"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="InvoiceNHReadAllHQL">from InvoiceNH</query>
+		</hibernate-mapping>
+	

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="GestionHosteleraNetGen.Infraestructure"
+		                   namespace="GestionHosteleraNetGen.Infraestructure.EN.GestionHosteleria">
+		    
+		    
+			
+				<class name="RestaurantNH" table="Restaurant"> 
+						<id name="Id" column="id"/> 
+			
+					
+					<property name="Name" type="string"> 
+						<column name="name"  not-null="true"/>
+					</property>
+					<property name="Address" type="string"> 
+						<column name="address"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+		  			
+						<bag name="Waiter" >
+							<key>
+							
+								
+								<column name="FK_id_idRestaurant"/>
+					      	</key>
+							<one-to-many class="GestionHosteleraNetGen.Infraestructure.EN.GestionHosteleria.WaiterNH"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Stock" >
+							<key>
+							
+								
+								<column name="FK_id_idRestaurant"/>
+					      	</key>
+							<one-to-many class="GestionHosteleraNetGen.Infraestructure.EN.GestionHosteleria.StockNH"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Inventory" >
+							<key>
+							
+								
+								<column name="FK_id_idRestaurant"/>
+					      	</key>
+							<one-to-many class="GestionHosteleraNetGen.Infraestructure.EN.GestionHosteleria.InventoryNH"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Product" >
+							<key>
+							
+								
+								<column name="FK_id_idRestaurant"/>
+					      	</key>
+							<one-to-many class="GestionHosteleraNetGen.Infraestructure.EN.GestionHosteleria.ProductNH"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Orders" >
+							<key>
+							
+								
+								<column name="FK_id_idRestaurant"/>
+					      	</key>
+							<one-to-many class="GestionHosteleraNetGen.Infraestructure.EN.GestionHosteleria.OrdersNH"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="RestaurantNHReadAllHQL">from RestaurantNH</query>
+		</hibernate-mapping>
+	

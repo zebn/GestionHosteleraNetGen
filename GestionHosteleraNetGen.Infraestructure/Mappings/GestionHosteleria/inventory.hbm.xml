@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="GestionHosteleraNetGen.Infraestructure"
+		                   namespace="GestionHosteleraNetGen.Infraestructure.EN.GestionHosteleria">
+		    
+		    
+			
+				<class name="InventoryNH" table="Inventory"> 
+						<id name="Id" column="id"/> 
+			
+					
+					<property name="Name" type="string"> 
+						<column name="name"  not-null="true"/>
+					</property>
+					<property name="Quantity" type="integer"> 
+						<column name="quantity"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="Restaurant" class="GestionHosteleraNetGen.Infraestructure.EN.GestionHosteleria.RestaurantNH" >	
+								<column name="FK_id_idRestaurant"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="InventoryNHReadAllHQL">from InventoryNH</query>
+		</hibernate-mapping>
+	

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="GestionHosteleraNetGen.Infraestructure"
+		                   namespace="GestionHosteleraNetGen.Infraestructure.EN.GestionHosteleria">
+		    
+		    
+			
+				<class name="ProductInvoiceDetailNH" table="ProductInvoiceDetail"> 
+						<id name="Id" column="id"/> 
+			
+					
+					<property name="Price" type="float"> 
+						<column name="price"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+		  			
+						<many-to-one name="Invoice" class="GestionHosteleraNetGen.Infraestructure.EN.GestionHosteleria.InvoiceNH" >	
+								<column name="FK_id_idInvoice"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ProductInvoiceDetailNHReadAllHQL">from ProductInvoiceDetailNH</query>
+		</hibernate-mapping>
+	
